@@ -1034,7 +1034,7 @@
 	stuttering = 0
 	slurring = 0
 	jitteriness = 0
-	slowdown = 0
+	remove_status_effect(/datum/status_effect/debuff/slowed)
 	update_mobility()
 	stop_sound_channel(CHANNEL_HEARTBEAT)
 
@@ -1767,7 +1767,7 @@
 	return TRUE
 
 /mob/living/proc/can_use_guns(obj/item/G)//actually used for more than guns!
-	if(HAS_TRAIT(src, TRAIT_TINYPAWS))
+	if(HAS_TRAIT(src, TRAIT_WEAPONLESS))
 		to_chat(src, span_warning("I am unable to fire this!"))
 		return FALSE
 	if(G.trigger_guard == TRIGGER_GUARD_NONE)
